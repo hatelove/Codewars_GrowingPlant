@@ -9,7 +9,12 @@ namespace Codewars_GrowingPlant
         [TestMethod]
         public void firstDay_fulfill()
         {
-            Assert.AreEqual(1, new Kata().GrowingPlant(10, 9, 4));
+            ShouleWaitDays(1, 10, 9, 4);
+        }
+
+        private static void ShouleWaitDays(int expected, int upSpeed, int downSpeed, int desiredHeight)
+        {
+            Assert.AreEqual(expected, new Kata().GrowingPlant(upSpeed, downSpeed, desiredHeight));
         }
     }
 
