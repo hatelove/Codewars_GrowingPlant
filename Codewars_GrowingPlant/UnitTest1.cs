@@ -36,14 +36,20 @@ namespace Codewars_GrowingPlant
             else
             {
                 result++;
-                var h1 = upSpeed - downSpeed;
+                var h1 = GetGrowingHeightPerDay(upSpeed, downSpeed);
                 if (h1 + upSpeed >= desiredHeight)
                 {
-                    return 2;
+                    return result;
                 }
 
                 throw new NotImplementedException();
             }
+        }
+
+        private static int GetGrowingHeightPerDay(int upSpeed, int downSpeed)
+        {
+            var h1 = upSpeed - downSpeed;
+            return h1;
         }
     }
 }
