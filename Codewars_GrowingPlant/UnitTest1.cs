@@ -1,5 +1,4 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
 
 namespace Codewars_GrowingPlant
 {
@@ -28,28 +27,20 @@ namespace Codewars_GrowingPlant
     {
         public int GrowingPlant(int upSpeed, int downSpeed, int desiredHeight)
         {
-            var result = 1;
-            if (upSpeed >= desiredHeight)
+            var currentHeight = 0;
+            var days = 1;
+            while (currentHeight + upSpeed < desiredHeight)
             {
-                return result;
+                days++;
+                currentHeight += GetGrowingHeightPerDay(upSpeed, downSpeed);
             }
-            else
-            {
-                result++;
-                var h1 = GetGrowingHeightPerDay(upSpeed, downSpeed);
-                if (h1 + upSpeed >= desiredHeight)
-                {
-                    return result;
-                }
 
-                throw new NotImplementedException();
-            }
+            return days;
         }
 
         private static int GetGrowingHeightPerDay(int upSpeed, int downSpeed)
         {
-            var h1 = upSpeed - downSpeed;
-            return h1;
+            return upSpeed - downSpeed;
         }
     }
 }
