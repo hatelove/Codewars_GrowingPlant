@@ -17,6 +17,11 @@ namespace Codewars_GrowingPlant
     {
         public int GrowingPlant(int upSpeed, int downSpeed, int desiredHeight)
         {
+            if (upSpeed >= desiredHeight)
+            {
+                return 1;
+            }
+
             throw new NotImplementedException();
         }
     }
