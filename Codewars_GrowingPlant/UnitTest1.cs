@@ -16,18 +16,34 @@ namespace Codewars_GrowingPlant
         {
             Assert.AreEqual(expected, new Kata().GrowingPlant(upSpeed, downSpeed, desiredHeight));
         }
+
+        [TestMethod]
+        public void twoDays_fulfill()
+        {
+            ShouleWaitDays(2, 10, 1, 19);
+        }
     }
 
     public class Kata
     {
         public int GrowingPlant(int upSpeed, int downSpeed, int desiredHeight)
         {
+            var result = 1;
             if (upSpeed >= desiredHeight)
             {
-                return 1;
+                return result;
             }
+            else
+            {
+                result++;
+                var h1 = upSpeed - downSpeed;
+                if (h1 + upSpeed >= desiredHeight)
+                {
+                    return 2;
+                }
 
-            throw new NotImplementedException();
+                throw new NotImplementedException();
+            }
         }
     }
 }
